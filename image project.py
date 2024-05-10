@@ -50,7 +50,6 @@ plt.rc('axes', labelsize=14, titlesize=14)
 plt.rc('legend', fontsize=14)
 plt.rc('xtick', labelsize=10)
 plt.rc('ytick', labelsize=10)
-# data_dir='/kaggle/input/rgb-arabic-alphabets-sign-language-dataset/images_after (copy)'
 images=tf.keras.utils.image_dataset_from_directory(
     path2,
     batch_size=32,
@@ -109,18 +108,11 @@ from tensorflow.keras.layers import Dense, Flatten, GlobalAveragePooling2D, Drop
 model6 = Sequential()
 model6.add(resnet),
 Dropout(0.5),
-# model6.add(Dense(2048, activation='relu'))
-# model6.add(Dense(1024, activation='relu'))
-# model6.add(Dense(512, activation='relu'))
-# model6.add(Dense(256, activation='relu'))
-# model6.add(Dense(128, activation='relu'))
-# model6.add(Dense(64, activation='relu'))
 model6.add(Dense(31, activation='softmax'))
 model6.summary()
 optimizer = tf.keras.optimizers.Adam(learning_rate=0.001) 
 model6.compile(optimizer = optimizer, loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False), metrics=['accuracy'])
 EPOCHS = 10
-# BATCH_SIZE=64
 history6 = model6.fit(
     images,
     epochs = EPOCHS,
