@@ -109,7 +109,6 @@ model6 = Sequential()
 model6.add(resnet),
 Dropout(0.5),
 model6.add(Dense(31, activation='softmax'))
-model6.summary()
 optimizer = tf.keras.optimizers.Adam(learning_rate=0.001) 
 model6.compile(optimizer = optimizer, loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False), metrics=['accuracy'])
 EPOCHS = 10
